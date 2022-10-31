@@ -1,17 +1,14 @@
     <head>
         <meta charset="UTF-8">
-        <title>Formulário</title>
+        <title>Forms</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
 <body>
 <div class="col-8 m-auto pt-4 pb-2 text-center">
     <h1>Register</h1>
 </div>
-<div class="col-8 m-auto pt-3 pb-2 text-center">
-    <a href="/" class="btn btn-info">Back</a>
-</div>
 <div class="col-8 m-auto pt-4 pb-2 text-center">
-      <form name="form" id="form" action="{% if db %}/update/{{db.id}}/{%else%}/create/{% endif %}" method="post">
+      <form name="form" id="form" action="{% if game %}/update/{{game.id}}/{%else%}/create/{% endif %}" method="post">
         {% csrf_token %}
         <!--{{form.as_p}}-->
         <div class="form-group mt-4">Title: {{form.title}}</div>
@@ -19,8 +16,12 @@
         <div class="form-group mt-4">Console: {{form.console}}</div>
         <div class="form-group mt-4">ASIN: {{form.asin}}</div>
         <div class="form-group mt-4">Language: {{form.language}}</div>
-        <input type="submit" class="btn btn-primary btn-success" value="Save">
+        <a href="/" ><button type="submit" class="btn btn-primary btn-success" value="Save">Save</button></a>
+        <div class="col-8 m-auto pt-3 pb-2 text-center">
+           <a href="/" class="btn btn-info">Back</a>
+        </div>
     </form>
+
 </div>
 
 {% load static %}
